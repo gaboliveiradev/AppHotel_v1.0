@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppHotel.View.OrcamentoHospedagem" Title="Minha Estadia">
+    
+    <ContentPage.Content>
+        <Grid x:Name="G1" RowSpacing="1" ColumnSpacing="1" Padding="10" ColumnDefinitions="*, 50, *, *" RowDefinitions="*, *, *, *, *, 70, *, *, *, *">
+            
+            <Label Grid.Row="0" Grid.ColumnSpan="4" Text="Calculo Diária" FontSize="Title" 
+                   HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" 
+            />
+            
+            <!-- Definição dos Labels e Stepper da Quantidade de Adultos -->
+            <Label Grid.Row="3" Grid.Column="0" Text="Adultos:" Style="{ StaticResource LabelsCampo }" />
+            <Label Grid.Row="3" Grid.Column="1" x:Name="lbl_qnt_adultos" BindingContext="{ x:Reference StepperAdulto }"
+                   Text="{ Binding Value }" Style="{ StaticResource LabelsValoresStepper }"
+            />
+            
+            <Stepper x:Name="StepperAdulto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                     Minimum="0" Maximum="10" Increment="1"
+            />
+
+            <!-- Definição dos Labels e Stepper da Quantidade de Crianças -->
+            <Label Grid.Row="4" Grid.Column="0" Text="Crianças:" Style="{ StaticResource LabelsCampo }" />
+            <Label Grid.Row="4" Grid.Column="1" x:Name="lbl_qnt_crianca" BindingContext="{ x:Reference StepperCrianca }"
+                   Text="{ Binding Value }" Style="{ StaticResource LabelsValoresStepper }"
+            />
+
+            <Stepper x:Name="StepperCrianca" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                     Minimum="0" Maximum="10" Increment="1"
+            />
+            
+            <!-- Definição da lista de tipos de quartos disponíveis -->
+            <Picker x:Name="pck_quarto" Grid.Row="5" Grid.ColumnSpan="4" Title="Selecione o Quarto:"
+                    ItemDisplayBinding="{ Binding descricao }">
+            </Picker>
+            
+            <!-- Definições da data de entrada e saída do hotel -->
+            <Label Grid.Row="6" Grid.Column="0" Text="Check-In:" Style="{ StaticResource LabelsCampo }" />
+            <DatePicker x:Name="dtpck_checkin" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1" Format="dd/MM/yyyy" />
+
+            <Label Grid.Row="7" Grid.Column="0" Text="Check-Out:" Style="{ StaticResource LabelsCampo }" />
+            <DatePicker x:Name="dtpck_checkout" Grid.Row="7" Grid.ColumnSpan="3" Grid.Column="1" Format="dd/MM/yyyy" />
+            
+            <!-- Botão que chama o metodo que calcula a estadia e manda pra uma proxima página -->
+            <Button Grid.Row="9" Grid.ColumnSpan="4" Text="Calcular Minha Estadia" Clicked="btn_calcular_estadia" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

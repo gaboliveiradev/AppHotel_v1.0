@@ -9,7 +9,7 @@ namespace AppHotel.Model
     internal class Hospedagem
     {
 
-        public CategoriaQuarto model_quarto { get; set; }
+        public CategoriaQuarto quarto { get; set; }
         public int qnt_adulto { get; set; }
         public int qnt_crianca { get; set; }
         public int qnt_dias { get; set; }

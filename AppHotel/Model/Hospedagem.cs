@@ -9,7 +9,7 @@ namespace AppHotel.Model
     internal class Hospedagem
     {
 
-        public CategoriaQuarto quarto { get; set; }
+        public CategoriaQuarto model_quarto { get; set; }
         public int qnt_adulto { get; set; }
         public int qnt_crianca { get; set; }
         public int qnt_dias { get; set; }
@@ -24,6 +24,17 @@ namespace AppHotel.Model
         {
             int dias = checkout.Subtract(checkin).Days;
             return dias;
+        }
+
+        /*
+         * Calcular o valor da hospedagem de acordo com o tipo de quarto, a quantidade de 
+         * hospedes, e o tipo de hospedes.
+        */
+        public double CalcularValorEstadia()
+        {
+            double valor_hospedagem = (qnt_adulto * model_quarto.valor_diaria_adulto) * qnt_dias +
+                                      (qnt_crianca * model_quarto.valor_diaria_crianca) * qnt_dias;
+            return valor_hospedagem;
         }
 
     }

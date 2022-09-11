@@ -14,7 +14,7 @@ namespace AppHotel
         /*
          * Instanciando a lista de quartos disponiveis no hotel
         */
-        public List<CategoriaQuarto> quartos = new List<CategoriaQuarto>()
+        public List<CategoriaQuarto> quartos = new List<CategoriaQuarto>
         {
             new CategoriaQuarto()
             {

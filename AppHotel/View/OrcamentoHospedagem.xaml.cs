@@ -32,13 +32,13 @@ namespace AppHotel.View
              * fazer CheckIn no passado, e no máximo para agendar daqui 6 meses.
             */
             dtpck_checkin.MinimumDate = DateTime.Now;
-            dtpck_checkin.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 6, DateTime.Now.Day);
+            dtpck_checkin.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, DateTime.Now.Day);
 
             /* 
              * No checkout temos que definir que o cliente irá sair pelo menos após uma diária.
             */
-            dtpck_checkout.MinimumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
-            dtpck_checkout.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 6, DateTime.Now.Day);
+            dtpck_checkout.MinimumDate = dtpck_checkin.Date.AddDays(1);
+            dtpck_checkout.MaximumDate = dtpck_checkin.Date.AddMonths(6);
         }
 
         private async void btn_calcular_estadia(object sender, EventArgs e)
@@ -91,7 +91,9 @@ namespace AppHotel.View
             DatePicker elemento = (DatePicker)sender;
             DateTime data_checkin = elemento.Date;
 
-            dtpck_checkout.MinimumDate = new DateTime(data_checkin.Year, data_checkin.Month, data_checkin.Day + 1);
+            dtpck_checkout.MinimumDate = data_checkin.AddDays(1);
+            dtpck_checkout.MaximumDate = data_checkin.Date.AddMonths(6);
+
         }
     }
 }

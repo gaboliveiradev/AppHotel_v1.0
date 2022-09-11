@@ -26,7 +26,7 @@
                    Text="{ Binding Value }" Style="{ StaticResource LabelsValoresStepper }"
             />
 
-            <Stepper x:Name="StepperCrianca" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+            <Stepper x:Name="StepperCrianca" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
                      Minimum="0" Maximum="10" Increment="1"
             />
             

@@ -32,8 +32,8 @@ namespace AppHotel.Model
         */
         public double CalcularValorEstadia()
         {
-            double valor_hospedagem = (qnt_adulto * model_quarto.valor_diaria_adulto) * qnt_dias +
-                                      (qnt_crianca * model_quarto.valor_diaria_crianca) * qnt_dias;
+            double valor_hospedagem = (qnt_adulto * quarto.valor_diaria_adulto) * qnt_dias +
+                                      (qnt_crianca * quarto.valor_diaria_crianca) * qnt_dias;
             return valor_hospedagem;
         }
 

@@ -37,7 +37,7 @@
             
             <!-- Definições da data de entrada e saída do hotel -->
             <Label Grid.Row="6" Grid.Column="0" Text="Check-In:" Style="{ StaticResource LabelsCampo }" />
-            <DatePicker x:Name="dtpck_checkin" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1" Format="dd/MM/yyyy" />
+            <DatePicker x:Name="dtpck_checkin" Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="1" Format="dd/MM/yyyy" DateSelected="dtpck_checkin_DateSelected" />
 
             <Label Grid.Row="7" Grid.Column="0" Text="Check-Out:" Style="{ StaticResource LabelsCampo }" />
             <DatePicker x:Name="dtpck_checkout" Grid.Row="7" Grid.ColumnSpan="3" Grid.Column="1" Format="dd/MM/yyyy" />

@@ -85,5 +85,13 @@ namespace AppHotel.View
                 await DisplayAlert("OPS!", err.Message, "Fechar");
             }
         }
+
+        private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            DatePicker elemento = (DatePicker)sender;
+            DateTime data_checkin = elemento.Date;
+
+            dtpck_checkout.MinimumDate = new DateTime(data_checkin.Year, data_checkin.Month, data_checkin.Day + 1);
+        }
     }
 }
